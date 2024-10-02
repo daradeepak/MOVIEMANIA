@@ -1,0 +1,17 @@
+.movie-tile {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.2s;
+  }
+  
+  .movie-tile:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-title {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  
+
+  

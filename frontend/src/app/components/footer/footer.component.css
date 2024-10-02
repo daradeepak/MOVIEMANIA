@@ -1,0 +1,38 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1; /* This will push the footer down */
+}
+
+.footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.footer-links a {
+    display: block;
+    text-decoration: none;
+}
+
+.social-icons a {
+    margin-right: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+.social-icons a:hover {
+    color: #007bff; /* Change the hover color if desired */
+}

@@ -1,0 +1,95 @@
+/* Banner Section */
+.card.bg {
+    position: relative;
+    background-color: #000;
+    color: white;
+}
+
+.card.bg .card-img {
+    filter: brightness(50%);
+    height: 400px;
+    object-fit: cover;
+}
+
+.card.bg .card-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+}
+
+/* Movie Tiles */
+.movie-tile {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.movie-tile:hover {
+    transform: scale(1.05);
+}
+
+.movie-tile .card-img-top {
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; /* Rounded corners */
+}
+
+/* Movie Title Styling */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Space between title and description */
+}
+
+/* Action Buttons */
+.btn {
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+}
+
+/* Page Structure */
+.container {
+    padding-bottom: 50px;
+}
+
+
+/* Container for the pagination to avoid overflow */
+.pagination {
+    display: flex;
+    justify-content: center; /* Center the pagination */
+    flex-wrap: wrap; /* Allow items to wrap onto the next line */
+    margin: 1rem 0; /* Add margin for spacing */
+}
+
+/* Optional: Style for individual page items */
+.page-item {
+    margin: 0 5px; /* Add some margin between page items */
+}
+
+/* Optional: Responsive adjustments */
+@media (max-width: 768px) {
+    .pagination {
+        flex-direction: column; /* Stack items on smaller screens */
+    }
+}

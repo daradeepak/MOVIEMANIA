@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" routerLink="/">
+        <span class="brand-icon"><i class="fa-solid fa-video"></i> MOVIE MANIA</span>
+    </a>
+
+    <form class="d-flex ms-2" role="search">
+        <input class="form-control me-2 rounded-5 search-input" type="search" placeholder="Search Movies"
+            aria-label="Search" id="searchInput">
+        <button class="btn btn-success rounded-5" type="submit"><i class="fa-solid fa-magnifying-glass"></i> </button>
+    </form>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/" routerLinkActive="active">
+                    <i class="fa-solid fa-house fs-5"></i> Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" *ngIf="!isAdmin()" routerLink="/top-rated" routerLinkActive="active">Top Rated</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" *ngIf="!isAdmin()" routerLink="/about" routerLinkActive="active">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" *ngIf="!isAdmin()" routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
+            </li>
+
+            <li class="nav-item" *ngIf="isAdmin()">
+                <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin Dashboard</a>
+            </li>
+
+            <li class="nav-item" *ngIf="userName; else signInLink">
+                <a class="nav-link">
+                    <i class="fa-solid fa-user"></i> Hello, {{ userName }}
+                </a>
+            </li>
+            <li class="nav-item mx-3" *ngIf="userName">
+                <button class="btn btn-danger rounded-5" (click)="logout()">Logout</button>
+            </li>
+            <ng-template #signInLink>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/sign-in" routerLinkActive="active">
+                        <i class="fa-solid fa-user"></i> Hello, sign in
+                    </a>
+                </li>
+            </ng-template>
+        </ul>
+    </div>
+</nav>

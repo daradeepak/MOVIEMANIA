@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="container mt-5">
+    <div class="row mb-5">
+        <div class="col-md-4">
+            <!-- Display the movie poster -->
+            <img [src]="movieDetails?.poster ? 'data:image/jpeg;base64,' + movieDetails.poster : 'assets/no-image.png'"
+                class="img-fluid rounded shadow card-img" alt="{{ movieDetails?.title }}" />
+        </div>
+        <div class="col-md-8">
+            <div class="card mb-4 shadow-lg">
+                <div class="card-body">
+                    <h2 class="card-title text-primary">{{ movieDetails?.title }}</h2>
+                    <p class="text-muted">
+                        Release Year: <strong>{{ movieDetails?.year }}</strong>
+                    </p>
+                    <p class="mt-3">{{ movieDetails?.description }}</p>
+                </div>
+            </div>
+
+
+
+            <!-- <div class="rating-review-section mb-4 p-4 bg-light rounded shadow-sm">
+                <h4 class="mb-3">Your Rating</h4>
+                <div class="star-rating mb-3">
+                    <span (click)="setRating(1)" [ngClass]="{'filled': rating >= 1}">★</span>
+                    <span (click)="setRating(2)" [ngClass]="{'filled': rating >= 2}">★</span>
+                    <span (click)="setRating(3)" [ngClass]="{'filled': rating >= 3}">★</span>
+                    <span (click)="setRating(4)" [ngClass]="{'filled': rating >= 4}">★</span>
+                    <span (click)="setRating(5)" [ngClass]="{'filled': rating >= 5}">★</span>
+                </div> -->
+
+            <h4 class="mb-3">Your Review</h4>
+            <textarea formControlName="userReview" rows="4" class="form-control mb-3"
+                placeholder="Write your review here...">
+            </textarea>
+
+            <button (click)="submitReview()" class="btn btn-warning rounded-5  btn-lg">
+                Submit Review
+            </button>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

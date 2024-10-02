@@ -1,0 +1,27 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 900px; /* Keeping this as is */
+}
+
+.profile-pic {
+    width: 300px;
+    height: 300px;
+    border: 5px solid #ffc107;
+    transition: transform 0.3s; 
+}
+
+.profile-pic:hover {
+    transform: scale(1.1); /* Increase size on hover */
+}
+
+
+h2 {
+    color: #343a40; /* Darker color for the heading */
+}
+
+.text-muted {
+    color: #6c757d; /* Standard muted color */
+}
