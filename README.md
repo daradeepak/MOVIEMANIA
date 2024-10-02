@@ -17,9 +17,9 @@ MovieMania is a movie review and rating platform that allows users to browse mov
 - Perform administrative tasks like viewing user data.
 
 ### Tech Stack:
-- **Frontend**: Angular, Bootstrap, Angular Material UI, Font Awesome
+- **Frontend**:HTML, CSS, JavaScript, Angular, Bootstrap, Angular Material UI, Font Awesome
 - **Backend**: Spring Boot, RESTful API
-- **Database**: MySQL or any preferred relational database
+- **Database**: MySQL 
 
 ## Installation
 
@@ -72,7 +72,3 @@ MovieMania is a movie review and rating platform that allows users to browse mov
 ## Contributing
 
 Contributions are welcome! Please fork this repository and submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
