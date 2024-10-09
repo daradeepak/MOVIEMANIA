@@ -10,8 +10,6 @@ import { group } from '@angular/animations';
 })
 export class UsersComponent {
   search: any;
-
-
   users: any;
   selectedUserId: any;
   userForm: FormGroup;
@@ -58,8 +56,8 @@ export class UsersComponent {
 
   // UPDATE User - populate form
   updateUser(user: any) {
-    this.selectedUserId = user.id; // Set the ID of the user to be updated
-    this.userForm.patchValue(user); // Populate the form with the selected user's data
+    this.selectedUserId = user.id; 
+    this.userForm.patchValue(user);
   }
 
   onSubmit() {

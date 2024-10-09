@@ -12,23 +12,29 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table (name = "movies", uniqueConstraints = 
-			{
-					@UniqueConstraint(columnNames = {"id"})
-			}
-		)
-public class Movie
-{
+@Table(name = "movies", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "id" })
+})
+public class Movie {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-    @Lob
-    private byte[] poster;
+	
+	// @Lob
+	// private byte[] poster
+
+	@Column(name = "poster_url") 
+	private String posterUrl;
+	
+	
+
 	@Column(nullable = false)
 	private String title;
+
 	@Column(nullable = false)
 	private int year;
+
 	@Column(nullable = false)
-	private String description;	
+	private String description;
 
 }

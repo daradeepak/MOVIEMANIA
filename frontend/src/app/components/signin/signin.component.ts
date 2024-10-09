@@ -11,6 +11,8 @@ import { UserService } from 'src/app/services/user.service';
 export class SigninComponent implements OnInit {
   loginForm: FormGroup;
   errorMessage: string;
+  welcomeMessage: string;  // Add this variable to store the welcome message
+  showPassword: boolean;
 
   constructor(
     private _userService: UserService,
@@ -24,6 +26,7 @@ export class SigninComponent implements OnInit {
       password: ['', [Validators.required]]
     });
   }
+
 
   onSubmit() {
     if (this.loginForm.valid) {
@@ -40,11 +43,16 @@ export class SigninComponent implements OnInit {
                   sessionStorage.setItem('userEmail', loggedInUser.email);
                   sessionStorage.setItem('userName', loggedInUser.name);
 
-                  if (user.email === 'admin@mm.com') {
-                    this._router.navigate(['/admin']);
-                  } else {
-                    this._router.navigate(['/']);
-                  }
+                  this.welcomeMessage = `Welcome, ${loggedInUser.name}!`;
+
+                  setTimeout(() => {
+                    if (user.email === 'admin@mm.com') {
+                      this._router.navigate(['/admin']);
+                    } else {
+                      this._router.navigate(['/']);
+                    }
+                  }, 2000);
+
                 } else {
                   this.errorMessage = 'User not found';
                 }
@@ -65,4 +73,10 @@ export class SigninComponent implements OnInit {
       );
     }
   }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword; // Toggle password visibility
+}
+
+
 }

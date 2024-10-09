@@ -2,9 +2,9 @@
 <div class="container mt-5">
     <div class="row mb-5">
         <div class="col-md-4">
-            <!-- Display the movie poster -->
-            <img [src]="movieDetails?.poster ? 'data:image/jpeg;base64,' + movieDetails.poster : 'assets/no-image.png'"
-                class="img-fluid rounded shadow card-img" alt="{{ movieDetails?.title }}" />
+            <img class="img-fluid rounded shadow card-img" [src]="movieDetails?.posterUrl"
+                [alt]="movieDetails?.title || 'Movie Poster'" />
+
         </div>
         <div class="col-md-8">
             <div class="card mb-4 shadow-lg">
@@ -29,7 +29,8 @@
                     <span (click)="setRating(5)" [ngClass]="{'filled': rating >= 5}">★</span>
                 </div> -->
 
-            <h4 class="mb-3">Your Review</h4>
+            <h4 class="mb-3">Your Review <i class="fa-regular fa-comments"></i>
+            </h4>
             <textarea formControlName="userReview" rows="4" class="form-control mb-3"
                 placeholder="Write your review here...">
             </textarea>

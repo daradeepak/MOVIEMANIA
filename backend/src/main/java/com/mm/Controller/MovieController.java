@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mm.Model.Movie;
+import com.mm.Model.Users;
 import com.mm.Service.MovieServiceImpl;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -29,15 +30,29 @@ public class MovieController {
     MovieServiceImpl service;
 
     // Upload a new movie
+    // @PostMapping("/upload-movie")
+    // public Movie uploadMovie(@RequestParam("movie") String movieJson, 
+    //                          @RequestParam("poster") MultipartFile file) throws IOException {
+    //     ObjectMapper objectMapper = new ObjectMapper();
+    //     Movie movie;
+    //         // Convert JSON string to Movie object
+    //         movie = objectMapper.readValue(movieJson, Movie.class);
+    //         movie.setPoster(file.getBytes()); // Convert the file to bytes
+    //         return service.saveMovie(movie);
+    // }   
+    
+    //Upload movie
     @PostMapping("/upload-movie")
-    public Movie uploadMovie(@RequestParam("movie") String movieJson, 
-                             @RequestParam("poster") MultipartFile file) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-        Movie movie;
-            // Convert JSON string to Movie object
-            movie = objectMapper.readValue(movieJson, Movie.class);
-            movie.setPoster(file.getBytes()); // Convert the file to bytes
-            return service.saveMovie(movie);
+    public Movie uploadMovie(@RequestBody Movie movie)
+    {
+        return service.postMovie(movie);
+    }
+    
+    //BULK UPLOAD
+    @PostMapping("/bulk-upload")
+    public List<Movie> bulkUpload(@RequestBody List<Movie> movies)
+    {
+    	return service.postAllMovies(movies);
     }
 
 
@@ -70,7 +85,7 @@ public class MovieController {
     }
 
     // Find movies by title
-    @GetMapping("/movie-name/{title}")
+    @GetMapping("/searchByName/{title}")
     public List<Movie> getMovieByName(@PathVariable String title)
     {
         return service.findByTitle(title);

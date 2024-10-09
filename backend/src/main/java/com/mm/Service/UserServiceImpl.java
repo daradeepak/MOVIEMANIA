@@ -18,8 +18,7 @@ public class UserServiceImpl implements UserServiceInterface {
     }
 
     @Override
-    public List<Users> getUsers()
-    { 
+    public List<Users> getUsers() {
         return userRepo.findAll();
     }
 
@@ -30,34 +29,30 @@ public class UserServiceImpl implements UserServiceInterface {
         oldUser.setEmail(users.getEmail());
         oldUser.setPassword(users.getPassword());
         oldUser.setConfirm_password(users.getConfirm_password());
-        
+
         return userRepo.save(oldUser);
     }
 
     @Override
-    public String deleteById(Long id) 
-    {
+    public String deleteById(Long id) {
         userRepo.deleteById(id);
         return "User deleted successfully";
     }
 
     @Override
-    public List<Users> findByEmail(String email)
-    {
+    public List<Users> findByEmail(String email) {
         return userRepo.findByEmail(email);
     }
 
     @Override
-    public boolean findByEmailAndPassword(String email, String password)
-    {
+    public boolean findByEmailAndPassword(String email, String password) {
         Users user = userRepo.findByEmailAndPassword(email, password);
-        return user != null; 
+        return user != null;
     }
 
-	@Override
-	public List<Users> findByName(String name) {
-		// TODO Auto-generated method stub
-		return userRepo.findByName(name);
-	}
+    @Override
+    public List<Users> findByName(String name) {
+        return userRepo.findByName(name);
+    }
 
 }

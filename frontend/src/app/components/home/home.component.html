@@ -6,12 +6,10 @@
         <div class="col-md-2 mb-4" *ngFor="let movie of movies">
             <a [routerLink]="['/movie-card', movie.id]" style="text-decoration: none;">
                 <div class="card movie-tile h-100">
-                    <!-- Corrected img tag for the movie poster -->
-                    <img class="card-img-top" [src]="'data:image/jpeg;base64,' + movie.poster"
-                        [alt]="movie.title || 'Movie Poster'" />
+                    <img class="card-img-top" [src]="movie.posterUrl" [alt]="movie.title || 'Movie Poster'" />
                     <div class="card-body">
                         <h5 class="card-title">{{ movie.title }}</h5>
-                        <p class="card-text">{{ movie.description | slice:0:100 }}</p>
+                        <p class="card-text">{{ movie.description | slice: 0: 100 }}</p>
                     </div>
                 </div>
             </a>

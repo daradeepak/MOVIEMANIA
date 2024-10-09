@@ -13,10 +13,11 @@ import com.mm.Repository.MovieRepo;
 		@Autowired
 		MovieRepo movieRepo;
 		
-	    public Movie saveMovie(Movie movie) 
-	    {
-	        return movieRepo.save(movie);
-	    }
+		@Override
+		public Movie postMovie(Movie movie) 
+		{
+			return movieRepo.save(movie);
+		}
 	
 		@Override
 		public List<Movie> getAllMovies() 
@@ -58,5 +59,12 @@ import com.mm.Repository.MovieRepo;
 		public Movie findById(long id) {
 			return movieRepo.findById(id);
 		}
+
+		@Override
+		public List<Movie> postAllMovies(List<Movie> movies) {
+			// TODO Auto-generated method stub
+			return movieRepo.saveAll(movies);
+		}
+
 		
 	}

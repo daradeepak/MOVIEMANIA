@@ -3,11 +3,9 @@ import { CanActivateFn } from '@angular/router';
 import { Router } from '@angular/router';
 
 export const adminGuard: CanActivateFn = (route, state) => {
-  // Get the current user's role from session storage
-  const userFullName = sessionStorage.getItem('userFullName');
+  const userEmail = sessionStorage.getItem('userEmail');
 
-  // If the user is an admin, allow access
-  if (userFullName === 'admin@mm.com') {
+  if (userEmail === 'admin@mm.com') {
     return true;
   }
 

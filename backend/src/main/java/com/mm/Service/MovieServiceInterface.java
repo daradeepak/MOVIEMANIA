@@ -8,7 +8,10 @@ import com.mm.Model.Movie;
 public interface MovieServiceInterface 
 {
 	//POST MOVIES
-    public Movie saveMovie(Movie movie);
+    public Movie postMovie(Movie movie);
+    
+    //BULK UPLOAD 
+    public List<Movie> postAllMovies(List<Movie> movies);
     
     //GET MOVIES
     public List<Movie> getAllMovies();

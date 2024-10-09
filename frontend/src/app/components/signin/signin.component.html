@@ -3,10 +3,15 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-5">
+            <div class="col-md-5 col-sm-12">
                 <div class="card my-5">
                     <div class="card-body">
                         <h2 class="card-title text-center">Sign In 📜</h2>
+
+                        <div *ngIf="welcomeMessage" class="alert alert-success text-center">
+                            {{ welcomeMessage }}
+                        </div>
+
                         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                             <div class="form-group">
                                 <label for="email">Email address</label>
@@ -17,11 +22,18 @@
                                     Please enter a valid email.
                                 </div>
                             </div>
-
                             <div class="form-group mt-3">
                                 <label for="password">Password</label>
-                                <input type="password" formControlName="password" class="form-control" id="password"
-                                    aria-describedby="passwordHelp" />
+                                <div class="input-group">
+                                    <input [type]="showPassword ? 'text' : 'password'" formControlName="password"
+                                        class="form-control" id="password" />
+                                    <!-- Show toggle button only if there is a password -->
+                                    <div class="input-group-append" *ngIf="loginForm.get('password')?.value">
+                                        <button type="button" class="btn" (click)="togglePasswordVisibility()">
+                                            <i class="fas" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                                        </button>
+                                    </div>
+                                </div>
                                 <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
                                     class="text-danger">
                                     Password is required.
@@ -37,7 +49,7 @@
 
                             <div class="container d-flex justify-content-center align-items-center mt-3">
                                 <button type="submit" class="btn btn-primary rounded-5 col-6">
-                                    <i class="fas fa-sign-in"></i> Sign In
+                                    <i class="fas fa-sign-in-alt"></i> Sign In
                                 </button>
                             </div>
 
@@ -45,7 +57,8 @@
                                 <p>Don't have an account? <a [routerLink]="'/sign-up'">Sign Up</a></p>
                             </div>
 
-                            <div class="text-danger">{{ errorMessage }}</div>
+                            <!-- Error message -->
+                            <div class="text-center text-danger mt-3">{{ errorMessage }}</div>
                         </form>
                     </div>
                 </div>

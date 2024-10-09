@@ -27,15 +27,16 @@ export class MovieService {
   }
 
   //UPDATE MOVIE BY ID 
-  updateMovie(movieId: string, formData: FormData) {
-    return this._http.put(`${this._url}/update-movie/${movieId}`, formData);
-  }
-
-
 
 
   //DELETE MOVIE BY ID
   deleteMovie(id) {
-    return this._http.delete(`${this._url}/delete-movie/${id}`);
+    return this._http.delete(`${this._url}/delete-movie/${id}`, { responseType: 'text' });
   }
+
+  //SEARCH MOVIE
+  public searchMovie(title: string): Observable<any> {
+    return this._http.get(`${this._url}/searchByName/${title}`);
+  }
+
 }
